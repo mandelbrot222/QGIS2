@@ -20,12 +20,12 @@
       minZoom: -2
     });
 
-    // Update to match the new image dimensions
-    const bounds = [[0, 0], [1536, 2112]];  // Approx doubled due to 800 DPI
-
+    // Update to match your cleaned high-resolution map image
+    const bounds = [[0, 0], [1536, 2112]];
     const image = L.imageOverlay('map.png', bounds).addTo(map);
     map.fitBounds(bounds);
 
+    // Load GeoJSON with MultiPolygons
     fetch('spaces.geojson')
       .then(res => res.json())
       .then(data => {
