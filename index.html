@@ -20,7 +20,9 @@
       minZoom: -2
     });
 
-    const bounds = [[0, 0], [768, 1413]];
+    // Update to match the new image dimensions
+    const bounds = [[0, 0], [1536, 2112]];  // Approx doubled due to 800 DPI
+
     const image = L.imageOverlay('map.png', bounds).addTo(map);
     map.fitBounds(bounds);
 
@@ -29,10 +31,10 @@
       .then(data => {
         L.geoJSON(data, {
           style: {
-            color: "transparent",
-            fillColor: "transparent",
-            fillOpacity: 0,
-            weight: 0
+            color: "blue",
+            fillColor: "yellow",
+            fillOpacity: 0.4,
+            weight: 1
           },
           onEachFeature: function (feature, layer) {
             let popup = "";
